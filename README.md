@@ -1,15 +1,12 @@
-# credit_card_scanner
+# Flutter Credit Card Scanner
 
-A new flutter plugin project.
+Плагин для сканирования кредитной карты для Android и iOS.
 
-## Getting Started
+## iOS
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+Используется библиотека [CreditCardScanner](https://github.com/yhkaplan/credit-card-scanner), которая работает
+с Apple's Vision API, начиная с версии `iOS 13.0` и выше.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Android
 
+Используется библиотека [https://github.com/card-io/card.io-Android-SDK](https://github.com/card-io/card.io-Android-SDK), начиная с `Android 4.1` и выше.
