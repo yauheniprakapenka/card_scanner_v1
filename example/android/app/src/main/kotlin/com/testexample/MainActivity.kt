@@ -22,7 +22,7 @@ private object ChannelStrings {
 }
 
 class MainActivity: FlutterActivity() {
-  private val scanCardRequestCode = 1
+  private val scanCardRequestCode = 1 // Можно использовать любое значение
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)

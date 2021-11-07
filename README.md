@@ -9,4 +9,4 @@
 
 ## Android
 
-Используется библиотека [https://github.com/card-io/card.io-Android-SDK](https://github.com/card-io/card.io-Android-SDK), начиная с `Android 4.1` и выше.
+Используется библиотека [card.io](https://github.com/card-io/card.io-Android-SDK), начиная с `Android 4.1` и выше.
