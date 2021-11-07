@@ -11,14 +11,14 @@ class CardScannerPage extends StatefulWidget {
 }
 
 class _CardScannerPageState extends State<CardScannerPage> {
-  final viewModel = CardScannerViewModel();
-  final cardScannerPlugin = CardScannerPlugin();
-
   @override
   void initState() {
     super.initState();
     cardScannerPlugin.setMethodCallHandler();
   }
+
+  final cardScannerPlugin = CardScannerPlugin();
+  final viewModel = CardScannerViewModel();
 
   @override
   void dispose() {
@@ -29,7 +29,7 @@ class _CardScannerPageState extends State<CardScannerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Plugin example app')),
+      appBar: AppBar(title: const Text('Credit card scanner example')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -37,12 +37,11 @@ class _CardScannerPageState extends State<CardScannerPage> {
               valueListenable: cardScannerPlugin.card,
               builder: (_, json, ___) {
                 final creditCard = viewModel.getCreditCard(json);
-                if (creditCard == null) return const SizedBox();
                 return Center(child: CreditCard(creditCard: creditCard));
               }),
           TextButton(
             onPressed: () => cardScannerPlugin.openScanCamera(),
-            child: const Text('Открыть камеру'),
+            child: const Text('Open card scanner'),
           )
         ],
       ),

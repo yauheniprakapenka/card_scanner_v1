@@ -10,4 +10,9 @@ class CreditCardModel {
     this.expiryMonth,
     this.expiryYear,
   });
+
+  @override
+  String toString() {
+    return 'CreditCardModel(number: $number, cardHolder: $cardHolder, expiryMonth: $expiryMonth, expiryYear: $expiryYear)';
+  }
 }

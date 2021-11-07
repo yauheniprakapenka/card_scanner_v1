@@ -1,13 +1,16 @@
 import 'package:credit_card_scanner_example/domain/models/credit_card_model.dart';
+import 'package:credit_card_scanner_example/ui/widgets/credit_card_view_model.dart';
 import 'package:flutter/material.dart';
 
 class CreditCard extends StatelessWidget {
-  final CreditCardModel creditCard;
+  final CreditCardModel? creditCard;
 
-  const CreditCard({
+  CreditCard({
     Key? key,
     required this.creditCard,
   }) : super(key: key);
+
+  final viewModel = CreditCardViewModel();
 
   @override
   Widget build(context) {
@@ -24,14 +27,14 @@ class CreditCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(creditCard.number ?? ''),
+          Text(viewModel.getNumber(creditCard?.number)),
           Row(
             children: [
-              Text(creditCard.cardHolder ?? ''),
+              Text(viewModel.getCardHolder(creditCard?.cardHolder)),
               const Spacer(),
-              Text('${creditCard.expiryMonth ?? ''}'.padLeft(2, '0')),
+              Text(viewModel.getExpiryMonth(creditCard?.expiryMonth)),
               const Text(' / '),
-              Text('${creditCard.expiryYear ?? ''}'),
+              Text(viewModel.getExpiryYear(creditCard?.expiryYear)),
             ],
           )
         ],

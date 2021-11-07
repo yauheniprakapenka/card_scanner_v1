@@ -18,22 +18,28 @@ class _CreditCardMapper {
 
     if (Platform.isIOS) {
       final creditCardIos = CreditCardIosModel.fromJson(decodedJson);
-      return CreditCardModel(
+      debugPrint(creditCardIos.toString());
+      final creditCardModel = CreditCardModel(
         number: creditCardIos.number,
         cardHolder: creditCardIos.name,
         expiryMonth: creditCardIos.expireDate?.month,
         expiryYear: creditCardIos.expireDate?.year,
       );
+      debugPrint(creditCardModel.toString());
+      return creditCardModel;
     }
 
     if (Platform.isAndroid) {
       final creditCardAndroid = CreditCardAndroidModel.fromJson(decodedJson);
-      return CreditCardModel(
+      debugPrint(creditCardAndroid.toString());
+      final creditCardModel = CreditCardModel(
         number: creditCardAndroid.cardNumber,
         cardHolder: creditCardAndroid.cardholderName,
         expiryMonth: creditCardAndroid.expiryMonth,
         expiryYear: creditCardAndroid.expiryYear,
       );
+      debugPrint(creditCardModel.toString());
+      return creditCardModel;
     }
 
     debugPrint('Unsupported platform: ${Platform.operatingSystem}');
