@@ -1,6 +1,5 @@
-import 'dart:convert';
 import 'package:credit_card_scanner/card_scanner_plugin.dart';
-import 'package:credit_card_scanner_example/domain/models/credit_card_ios_dto.dart';
+import 'package:credit_card_scanner_example/ui/pages/card_scanner_view_model.dart';
 import 'package:credit_card_scanner_example/ui/widgets/credit_card.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +11,7 @@ class CardScannerPage extends StatefulWidget {
 }
 
 class _CardScannerPageState extends State<CardScannerPage> {
+  final viewModel = CardScannerViewModel();
   final cardScannerPlugin = CardScannerPlugin();
 
   @override
@@ -35,12 +35,10 @@ class _CardScannerPageState extends State<CardScannerPage> {
         children: [
           ValueListenableBuilder<String?>(
               valueListenable: cardScannerPlugin.card,
-              builder: (context, value, child) {
-                if (value == null) return const SizedBox();
-                final decodedJson = json.decode(value);
-                
-                final card = CreditCardIosDTO.fromJson(decodedJson);
-                return Center(child: CreditCard(card: card));
+              builder: (_, json, ___) {
+                final creditCard = viewModel.getCreditCard(json);
+                if (creditCard == null) return const SizedBox();
+                return Center(child: CreditCard(creditCard: creditCard));
               }),
           TextButton(
             onPressed: () => cardScannerPlugin.openScanCamera(),

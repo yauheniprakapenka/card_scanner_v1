@@ -48,7 +48,7 @@ class MainActivity: FlutterActivity() {
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == scanCardRequestCode && data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT)) {
-            (data.getParcelableExtra<CreditCard>(CardIOActivity.EXTRA_SCAN_RESULT) as CreditCard).let { card ->
+            data.getParcelableExtra<CreditCard>(CardIOActivity.EXTRA_SCAN_RESULT).let { card ->
                 val gson = Gson()
                 val jsonString = gson.toJson(card)
                 // Log.d("TAG", "card: ${jsonString}") // Example: {"cardNumber":"5435537029240612","expiryMonth":2,"expiryYear":2023,"flipped":false,"scanId":"3925c777-a146-4b01-8188-11ae27260ee3","xoff":[42,60,78,95,131,149,167,184,220,238,256,273,309,327,345,362],"yoff":145}

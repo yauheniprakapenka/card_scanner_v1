@@ -1,12 +1,12 @@
-import 'package:credit_card_scanner_example/domain/models/credit_card_ios_dto.dart';
+import 'package:credit_card_scanner_example/domain/models/credit_card_model.dart';
 import 'package:flutter/material.dart';
 
 class CreditCard extends StatelessWidget {
-  final CreditCardIosDTO card;
+  final CreditCardModel creditCard;
 
   const CreditCard({
     Key? key,
-    required this.card,
+    required this.creditCard,
   }) : super(key: key);
 
   @override
@@ -24,14 +24,14 @@ class CreditCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(card.number ?? '-'),
+          Text(creditCard.number ?? ''),
           Row(
             children: [
-              Text(card.name ?? '-'),
+              Text(creditCard.cardHolder ?? ''),
               const Spacer(),
-              Text('${card.expireDate?.month ?? ''}'.padLeft(2, '0')),
+              Text('${creditCard.expiryMonth ?? ''}'.padLeft(2, '0')),
               const Text(' / '),
-              Text('${card.expireDate?.year ?? ''}'),
+              Text('${creditCard.expiryYear ?? ''}'),
             ],
           )
         ],
