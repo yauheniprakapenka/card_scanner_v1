@@ -1,4 +1,4 @@
-name: hello
+name: credit_card_scanner
 description: A new flutter plugin project.
 version: 0.0.1
  
@@ -19,7 +19,7 @@ dev_dependencies:
 #   plugin:
 #     platforms:
 #       android:
-#         package: com.testexample.hello
-#         pluginClass: HelloPlugin
+#         package: com.testexample.credit_card_scanner
+#         pluginClass: credit_card_scannerPlugin
       # ios:
-      #   pluginClass: HelloPlugin
+      #   pluginClass: credit_card_scannerPlugin

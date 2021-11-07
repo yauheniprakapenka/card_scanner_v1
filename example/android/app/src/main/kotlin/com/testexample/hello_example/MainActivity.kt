@@ -1,4 +1,4 @@
-package com.testexample.hello_example
+package com.testexample.credit_card_scanner
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin

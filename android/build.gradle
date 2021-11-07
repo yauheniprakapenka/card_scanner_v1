@@ -1,4 +1,4 @@
-group 'com.testexample.hello'
+group 'com.testexample.credit_card_scanner'
 version '1.0-SNAPSHOT'
 
 buildscript {

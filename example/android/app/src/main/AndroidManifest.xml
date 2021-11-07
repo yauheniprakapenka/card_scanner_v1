@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.testexample.hello_example">
+    package="com.testexample.credit_card_scanner">
 
     <uses-permission android:name="android.permission.CAMERA" />
     
    <application
-        android:label="hello_example"
+        android:label="credit_card_scanner"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,4 @@
-# hello
+# credit_card_scanner
 
 A new flutter plugin project.
 

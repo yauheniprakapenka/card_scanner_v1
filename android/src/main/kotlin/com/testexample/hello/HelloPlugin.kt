@@ -1,4 +1,4 @@
-package com.testexample.hello
+package com.testexample.credit_card_scanner
 
 import androidx.annotation.NonNull
 
@@ -8,8 +8,8 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-/** HelloPlugin */
-class HelloPlugin: FlutterPlugin, MethodCallHandler {
+/** credit_card_scannerPlugin */
+class credit_card_scannerPlugin: FlutterPlugin, MethodCallHandler {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it

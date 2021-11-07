@@ -2,8 +2,8 @@
 <project version="4">
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="hello.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/hello.dart">
+      <file leaf-file-name="credit_card_scanner.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/credit_card_scanner.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />

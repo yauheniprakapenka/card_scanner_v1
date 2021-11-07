@@ -1,6 +1,6 @@
-# hello_example
+# credit_card_scanner
 
-Demonstrates how to use the hello plugin.
+Demonstrates how to use the credit_card_scanner plugin.
 
 ## Getting Started
 
