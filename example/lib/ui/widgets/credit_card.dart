@@ -1,8 +1,8 @@
-import 'package:credit_card_scanner_example/domain/models/credit_card_dto.dart';
+import 'package:credit_card_scanner_example/domain/models/credit_card_ios_dto.dart';
 import 'package:flutter/material.dart';
 
 class CreditCard extends StatelessWidget {
-  final IosCreditCardDTO card;
+  final CreditCardIosDTO card;
 
   const CreditCard({
     Key? key,

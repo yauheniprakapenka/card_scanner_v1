@@ -1,7 +1,6 @@
 import 'dart:convert';
-
 import 'package:credit_card_scanner/card_scanner_plugin.dart';
-import 'package:credit_card_scanner_example/domain/models/credit_card_dto.dart';
+import 'package:credit_card_scanner_example/domain/models/credit_card_ios_dto.dart';
 import 'package:credit_card_scanner_example/ui/widgets/credit_card.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +38,8 @@ class _CardScannerPageState extends State<CardScannerPage> {
               builder: (context, value, child) {
                 if (value == null) return const SizedBox();
                 final decodedJson = json.decode(value);
-                final card = IosCreditCardDTO.fromJson(decodedJson);
+                
+                final card = CreditCardIosDTO.fromJson(decodedJson);
                 return Center(child: CreditCard(card: card));
               }),
           TextButton(
