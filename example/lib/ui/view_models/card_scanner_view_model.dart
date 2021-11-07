@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:credit_card_scanner_example/domain/models/credit_card_android_dto.dart';
-import 'package:credit_card_scanner_example/domain/models/credit_card_ios_dto.dart';
-import 'package:credit_card_scanner_example/domain/models/credit_card_model.dart';
+import 'package:credit_card_scanner_example/domain/models/models.dart';
 import 'package:flutter/material.dart';
 
 class CardScannerViewModel {
@@ -19,7 +17,7 @@ class _CreditCardMapper {
     final decodedJson = json.decode(jsonData);
 
     if (Platform.isIOS) {
-      final creditCardIos = CreditCardIosDTO.fromJson(decodedJson);
+      final creditCardIos = CreditCardIosModel.fromJson(decodedJson);
       return CreditCardModel(
         number: creditCardIos.number,
         cardHolder: creditCardIos.name,
@@ -29,7 +27,7 @@ class _CreditCardMapper {
     }
 
     if (Platform.isAndroid) {
-      final creditCardAndroid = CreditCardAndroidDTO.fromJson(decodedJson);
+      final creditCardAndroid = CreditCardAndroidModel.fromJson(decodedJson);
       return CreditCardModel(
         number: creditCardAndroid.cardNumber,
         cardHolder: creditCardAndroid.cardholderName,

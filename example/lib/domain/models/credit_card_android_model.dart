@@ -1,18 +1,18 @@
-class CreditCardAndroidDTO {
+class CreditCardAndroidModel {
   final String? cardNumber;
   final String? cardholderName;
   final int? expiryMonth;
   final int? expiryYear;
 
-  CreditCardAndroidDTO({
+  CreditCardAndroidModel({
     this.cardNumber,
     this.cardholderName,
     this.expiryMonth,
     this.expiryYear,
   });
 
-  factory CreditCardAndroidDTO.fromJson(Map<String, dynamic> json) {
-    var card = CreditCardAndroidDTO();
+  factory CreditCardAndroidModel.fromJson(Map<String, dynamic> json) {
+    var card = CreditCardAndroidModel();
 
     final String? cardNumber = json['cardNumber'];
     if (cardNumber != null) card = card.copyWith(cardNumber: cardNumber);
@@ -29,13 +29,13 @@ class CreditCardAndroidDTO {
     return card;
   }
 
-  CreditCardAndroidDTO copyWith({
+  CreditCardAndroidModel copyWith({
     String? cardNumber,
     String? cardholderName,
     int? expiryMonth,
     int? expiryYear,
   }) {
-    return CreditCardAndroidDTO(
+    return CreditCardAndroidModel(
       cardNumber: cardNumber ?? this.cardNumber,
       cardholderName: cardholderName ?? this.cardholderName,
       expiryMonth: expiryMonth ?? this.expiryMonth,

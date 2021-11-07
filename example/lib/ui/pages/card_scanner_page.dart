@@ -1,5 +1,5 @@
 import 'package:credit_card_scanner/card_scanner_plugin.dart';
-import 'package:credit_card_scanner_example/ui/pages/card_scanner_view_model.dart';
+import 'package:credit_card_scanner_example/ui/view_models/card_scanner_view_model.dart';
 import 'package:credit_card_scanner_example/ui/widgets/credit_card.dart';
 import 'package:flutter/material.dart';
 

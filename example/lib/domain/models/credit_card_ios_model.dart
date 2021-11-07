@@ -1,16 +1,16 @@
-class CreditCardIosDTO {
+class CreditCardIosModel {
   final String? name;
   final String? number;
   final _ExpireDate? expireDate;
 
-  CreditCardIosDTO({
+  CreditCardIosModel({
     this.name,
     this.number,
     this.expireDate,
   });
 
-  factory CreditCardIosDTO.fromJson(Map<String, dynamic> json) {
-    var card = CreditCardIosDTO();
+  factory CreditCardIosModel.fromJson(Map<String, dynamic> json) {
+    var card = CreditCardIosModel();
 
     final String? name = json['name'];
     if (name != null) card = card.copyWith(name: name);
@@ -28,12 +28,12 @@ class CreditCardIosDTO {
   String toString() =>
       'CreditCard(name: $name, number: $number, expireDate: $expireDate)';
 
-  CreditCardIosDTO copyWith({
+  CreditCardIosModel copyWith({
     String? name,
     String? number,
     _ExpireDate? expireDate,
   }) {
-    return CreditCardIosDTO(
+    return CreditCardIosModel(
       name: name ?? this.name,
       number: number ?? this.number,
       expireDate: expireDate ?? this.expireDate,
