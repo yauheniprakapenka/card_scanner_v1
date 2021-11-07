@@ -1,0 +1,25 @@
+name: hello
+description: A new flutter plugin project.
+version: 0.0.1
+ 
+environment:
+  sdk: ">=2.13.4 <3.0.0"
+  flutter: ">=2.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.4
+
+# flutter:
+#   plugin:
+#     platforms:
+#       android:
+#         package: com.testexample.hello
+#         pluginClass: HelloPlugin
+      # ios:
+      #   pluginClass: HelloPlugin
