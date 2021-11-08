@@ -1,6 +1,5 @@
-import 'package:credit_card_scanner/card_scanner_plugin.dart';
-import 'package:credit_card_scanner_example/ui/view_models/card_scanner_view_model.dart';
-import 'package:credit_card_scanner_example/ui/widgets/credit_card.dart';
+import 'package:credit_card_scanner/card_scanner.dart';
+import 'package:credit_card_scanner_example/ui/widgets/credit_card/credit_card.dart';
 import 'package:flutter/material.dart';
 
 class CardScannerPage extends StatefulWidget {
@@ -18,7 +17,7 @@ class _CardScannerPageState extends State<CardScannerPage> {
   }
 
   final cardScannerPlugin = CardScannerPlugin();
-  final viewModel = CardScannerViewModel();
+  // final viewModel = CardScannerViewModel();
 
   @override
   void dispose() {
@@ -33,10 +32,9 @@ class _CardScannerPageState extends State<CardScannerPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ValueListenableBuilder<String?>(
+          ValueListenableBuilder<CreditCardModel?>(
               valueListenable: cardScannerPlugin.card,
-              builder: (_, json, ___) {
-                final creditCard = viewModel.getCreditCard(json);
+              builder: (_, creditCard, ___) {
                 return Center(child: CreditCard(creditCard: creditCard));
               }),
           TextButton(

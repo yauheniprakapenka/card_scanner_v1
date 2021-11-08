@@ -1,13 +1,17 @@
-import 'package:credit_card_scanner/core/const/channel_conts.dart';
+import 'package:credit_card_scanner/card_scanner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+part 'core/config/channel_config.dart';
+
 /// Для `iOS` используется библиотека `CreditCardScanner`, которая работает
-/// с Apple's Vision API, начиная с версии iOS 13.0 и выше.
+/// с Apple's Vision API. Поддерживает `iOS 13.0` и выше.
 ///
 /// Ссылка: https://github.com/yhkaplan/credit-card-scanner
+/// 
+/// Для `Android` используется библиотека `card.io`. Поддерживается `Android 4.1` и выше.
 class CardScannerPlugin extends ChangeNotifier {
-  static const _channel = MethodChannel(ChannelConst.channelName);
+  static const _channel = MethodChannel(_ChannelConfig.channelName);
 
   /// После успешного сканирования карты возвращает данные карты в формате JSON.
   ///
@@ -29,7 +33,7 @@ class CardScannerPlugin extends ChangeNotifier {
   ///   super.dispose();
   /// }
   /// ```
-  final card = ValueNotifier<String?>(null);
+  final card = ValueNotifier<CreditCardModel?>(null);
 
   /// Открывает камеру для сканирования кредитной карты.
   ///
@@ -44,16 +48,15 @@ class CardScannerPlugin extends ChangeNotifier {
   /// ```
   void openScanCamera() async {
     try {
-      final a =
-          await _channel.invokeMethod(ChannelConst.startCardScannerMethod);
-      debugPrint(a.toString());
+      await _channel.invokeMethod(_ChannelConfig.startCardScannerMethod);
     } catch (e) {
       throw Exception('Failed to open the camera: $e');
     }
   }
 
   /// Метод вызывается на стороне нативного приложения. Возвращает название
-  /// метода и аргумент с данными карты в формате JSON.
+  /// метода и аргумент с данными карты в формате JSON. Anroid и iOS возвращает разные JSON.
+  /// Для приведения в одну модель используется `CreditCardMapper`.
   ///
   /// Полученные данные карты присваиваются для переменной `card` и уведомляются подписчики,
   /// подписанные на `card`.
@@ -69,8 +72,9 @@ class CardScannerPlugin extends ChangeNotifier {
   ///```
   void setMethodCallHandler() {
     _channel.setMethodCallHandler((methodCall) async {
-      if (methodCall.method == ChannelConst.retrieveCardMethod) {
-        card.value = methodCall.arguments;
+      if (methodCall.method == _ChannelConfig.retrieveCardMethod) {
+        final args = methodCall.arguments;
+        card.value = CreditCardMapper.getCreditCard(args);
         notifyListeners();
       } else {
         throw Exception('Method call not found}');
