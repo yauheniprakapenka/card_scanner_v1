@@ -1,16 +1,18 @@
-class CreditCardIosModel {
+part of '../../data/mappers/credit_card_mapper.dart';
+
+class _CreditCardIosModel {
   final String? name;
   final String? number;
   final _ExpireDate? expireDate;
 
-  CreditCardIosModel({
+  _CreditCardIosModel({
     this.name,
     this.number,
     this.expireDate,
   });
 
-  factory CreditCardIosModel.fromJson(Map<String, dynamic> json) {
-    var card = CreditCardIosModel();
+  factory _CreditCardIosModel.fromJson(Map<String, dynamic> json) {
+    var card = _CreditCardIosModel();
 
     final String? name = json['name'];
     if (name != null) card = card.copyWith(name: name);
@@ -28,12 +30,12 @@ class CreditCardIosModel {
   String toString() =>
       'CreditCard(name: $name, number: $number, expireDate: $expireDate)';
 
-  CreditCardIosModel copyWith({
+  _CreditCardIosModel copyWith({
     String? name,
     String? number,
     _ExpireDate? expireDate,
   }) {
-    return CreditCardIosModel(
+    return _CreditCardIosModel(
       name: name ?? this.name,
       number: number ?? this.number,
       expireDate: expireDate ?? this.expireDate,

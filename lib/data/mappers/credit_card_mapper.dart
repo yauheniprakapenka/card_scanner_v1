@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'dart:io' show Platform;
 
-// import 'package:credit_card_scanner_example/domain/models/models.dart';
 import 'package:flutter/foundation.dart';
 import 'package:credit_card_scanner/card_scanner.dart';
+
+part '../../domain/models/credit_card_ios_model.dart';
+part '../../domain/models/credit_card_android_model.dart';
 
 class CreditCardMapper {
   /// Converts the received JSON from Android or iOS.
@@ -13,7 +15,7 @@ class CreditCardMapper {
     final decodedJson = json.decode(jsonData);
 
     if (Platform.isIOS) {
-      final creditCardIos = CreditCardIosModel.fromJson(decodedJson);
+      final creditCardIos = _CreditCardIosModel.fromJson(decodedJson);
       debugPrint(creditCardIos.toString());
       final creditCardModel = CreditCardModel(
         number: creditCardIos.number,
@@ -26,7 +28,7 @@ class CreditCardMapper {
     }
 
     if (Platform.isAndroid) {
-      final creditCardAndroid = CreditCardAndroidModel.fromJson(decodedJson);
+      final creditCardAndroid = _CreditCardAndroidModel.fromJson(decodedJson);
       debugPrint(creditCardAndroid.toString());
       final creditCardModel = CreditCardModel(
         number: creditCardAndroid.cardNumber,

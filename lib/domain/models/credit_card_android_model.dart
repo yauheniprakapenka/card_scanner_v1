@@ -1,18 +1,20 @@
-class CreditCardAndroidModel {
+part of '../../data/mappers/credit_card_mapper.dart';
+
+class _CreditCardAndroidModel {
   final String? cardNumber;
   final String? cardholderName;
   final int? expiryMonth;
   final int? expiryYear;
 
-  CreditCardAndroidModel({
+  _CreditCardAndroidModel({
     this.cardNumber,
     this.cardholderName,
     this.expiryMonth,
     this.expiryYear,
   });
 
-  factory CreditCardAndroidModel.fromJson(Map<String, dynamic> json) {
-    var card = CreditCardAndroidModel();
+  factory _CreditCardAndroidModel.fromJson(Map<String, dynamic> json) {
+    var card = _CreditCardAndroidModel();
 
     final String? cardNumber = json['cardNumber'];
     if (cardNumber != null) card = card.copyWith(cardNumber: cardNumber);
@@ -29,13 +31,13 @@ class CreditCardAndroidModel {
     return card;
   }
 
-  CreditCardAndroidModel copyWith({
+  _CreditCardAndroidModel copyWith({
     String? cardNumber,
     String? cardholderName,
     int? expiryMonth,
     int? expiryYear,
   }) {
-    return CreditCardAndroidModel(
+    return _CreditCardAndroidModel(
       cardNumber: cardNumber ?? this.cardNumber,
       cardholderName: cardholderName ?? this.cardholderName,
       expiryMonth: expiryMonth ?? this.expiryMonth,
