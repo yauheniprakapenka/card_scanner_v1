@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'dart:io' show Platform;
 
-import 'package:credit_card_scanner_example/domain/models/models.dart';
+// import 'package:credit_card_scanner_example/domain/models/models.dart';
 import 'package:flutter/foundation.dart';
+import 'package:credit_card_scanner/card_scanner.dart';
 
 class CreditCardMapper {
   /// Converts the received JSON from Android or iOS.

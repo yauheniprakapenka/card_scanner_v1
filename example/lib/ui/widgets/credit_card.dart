@@ -1,4 +1,4 @@
-import 'package:credit_card_scanner_example/domain/models/credit_card_model.dart';
+import 'package:credit_card_scanner/card_scanner.dart';
 import 'package:credit_card_scanner_example/ui/widgets/credit_card_view_model.dart';
 import 'package:flutter/material.dart';
 
