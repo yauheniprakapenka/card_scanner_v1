@@ -1,14 +1,21 @@
+import 'dart:convert';
+import 'dart:io' show Platform;
+
+import 'package:flutter/foundation.dart';
 import 'package:credit_card_scanner/card_scanner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 part 'core/config/channel_config.dart';
+part 'data/mappers/credit_card_mapper.dart';
+part 'domain/models/credit_card_ios_model.dart';
+part 'domain/models/credit_card_android_model.dart';
 
 /// Для `iOS` используется библиотека `CreditCardScanner`, которая работает
 /// с Apple's Vision API. Поддерживает `iOS 13.0` и выше.
 ///
 /// Ссылка: https://github.com/yhkaplan/credit-card-scanner
-/// 
+///
 /// Для `Android` используется библиотека `card.io`. Поддерживается `Android 4.1` и выше.
 class CardScannerPlugin extends ChangeNotifier {
   static const _channel = MethodChannel(_ChannelConfig.channelName);
@@ -74,7 +81,7 @@ class CardScannerPlugin extends ChangeNotifier {
     _channel.setMethodCallHandler((methodCall) async {
       if (methodCall.method == _ChannelConfig.retrieveCardMethod) {
         final args = methodCall.arguments;
-        card.value = CreditCardMapper.getCreditCard(args);
+        card.value = _CreditCardMapper.getCreditCard(args);
         notifyListeners();
       } else {
         throw Exception('Method call not found}');

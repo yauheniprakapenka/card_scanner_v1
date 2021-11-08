@@ -1,8 +1,8 @@
-part of '../../data/mappers/credit_card_mapper.dart';
+part of '../../card_scanner_plugin.dart';
 
 class _CreditCardAndroidModel {
   final String? cardNumber;
-  final String? cardholderName;
+  final String? cardholderName; // библиотека card.io не распознает
   final int? expiryMonth;
   final int? expiryYear;
 
