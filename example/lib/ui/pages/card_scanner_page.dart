@@ -17,8 +17,6 @@ class _CardScannerPageState extends State<CardScannerPage> {
   }
 
   final cardScannerPlugin = CardScannerPlugin();
-  // final viewModel = CardScannerViewModel();
-
   @override
   void dispose() {
     cardScannerPlugin.dispose();
