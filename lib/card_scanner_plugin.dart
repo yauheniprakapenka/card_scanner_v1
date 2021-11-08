@@ -1,18 +1,13 @@
+import 'package:credit_card_scanner/core/const/channel_conts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-class _ChannelStrings {
-  static const channelName = 'card_scanner_channel';
-  static const startCardScannerMethod = 'start_card_scanner_method';
-  static const retrieveCardMethod = 'retrieve_card_method';
-}
 
 /// Для `iOS` используется библиотека `CreditCardScanner`, которая работает
 /// с Apple's Vision API, начиная с версии iOS 13.0 и выше.
 ///
 /// Ссылка: https://github.com/yhkaplan/credit-card-scanner
 class CardScannerPlugin extends ChangeNotifier {
-  static const _channel = MethodChannel(_ChannelStrings.channelName);
+  static const _channel = MethodChannel(ChannelConst.channelName);
 
   /// После успешного сканирования карты возвращает данные карты в формате JSON.
   ///
@@ -50,7 +45,7 @@ class CardScannerPlugin extends ChangeNotifier {
   void openScanCamera() async {
     try {
       final a =
-          await _channel.invokeMethod(_ChannelStrings.startCardScannerMethod);
+          await _channel.invokeMethod(ChannelConst.startCardScannerMethod);
       debugPrint(a.toString());
     } catch (e) {
       throw Exception('Failed to open the camera: $e');
@@ -74,7 +69,7 @@ class CardScannerPlugin extends ChangeNotifier {
   ///```
   void setMethodCallHandler() {
     _channel.setMethodCallHandler((methodCall) async {
-      if (methodCall.method == _ChannelStrings.retrieveCardMethod) {
+      if (methodCall.method == ChannelConst.retrieveCardMethod) {
         card.value = methodCall.arguments;
         notifyListeners();
       } else {
