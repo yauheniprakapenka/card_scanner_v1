@@ -30,3 +30,39 @@
 cd example/ios
 pod install
 ```
+
+## Как это настроено
+
+### iOS
+
+- Для `info.plist` добавлено разрешение на камеру
+```
+<key>NSCameraUsageDescription</key>
+<string>Приложение запрашивает доступ к камере для автоматического сканирования карты</string>
+```
+
+- Для example/ios/Runner.xcworkspace -> PROJECT - Runner - Swift Packages - Кнопка Добавить - Добавлена библиотека
+```
+https://github.com/yhkaplan/credit-card-scanner.git
+
+0.1.5 версия
+```
+- При добавлении библиотеки может быть ошибка 
+```
+Git cloning error: 'fatal: multiple updates for ... ref not allowed'
+```
+Так как вместе с библиотекой скачиваются еще две. Чтобы разрешить мультизагрузку необходимо выполнить покманду
+```
+git config --global --unset remote.origin.fetch
+```
+
+### Android
+
+- В android/app/build.gradle добавлено две зависимости
+```
+dependencies {
+    implementation "org.jetbrains.
+    implementation 'io.card:android-sdk:5.5.1'        
+    implementation 'com.google.code.gson:gson:2.8.9'
+}
+```
