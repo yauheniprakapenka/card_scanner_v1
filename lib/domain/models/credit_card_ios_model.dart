@@ -1,4 +1,4 @@
-part of '../../card_scanner_plugin.dart';
+part of 'credit_card_model.dart';
 
 class _CreditCardIosModel {
   final String? name;
