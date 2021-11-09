@@ -10,16 +10,17 @@ class CardScannerPage extends StatefulWidget {
 }
 
 class _CardScannerPageState extends State<CardScannerPage> {
+  final cardScannerPlugin = CardScannerPlugin();
+
   @override
   void initState() {
     super.initState();
     cardScannerPlugin.setMethodCallHandler();
   }
 
-  final cardScannerPlugin = CardScannerPlugin();
   @override
   void dispose() {
-    cardScannerPlugin.dispose();
+    cardScannerPlugin.card.dispose();
     super.dispose();
   }
 
