@@ -61,7 +61,6 @@ git config --global --unset remote.origin.fetch
 - В android/app/build.gradle добавлено две зависимости
 ```
 dependencies {
-    implementation "org.jetbrains.
     implementation 'io.card:android-sdk:5.5.1'        
     implementation 'com.google.code.gson:gson:2.8.9'
 }
