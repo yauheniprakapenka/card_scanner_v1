@@ -20,4 +20,8 @@ class CreditCardScannerPlugin {
   Future<void> openScanCamera() async {
     await _channel.invokeMethod('start_card_scanner_method');
   }
+
+  void dispose() {
+    _streamCntr.close();
+  }
 }
