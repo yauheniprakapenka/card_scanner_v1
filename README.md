@@ -1,15 +1,11 @@
 # Flutter Credit Card Scanner
 
-<p align="center">
-  <img src="demo/images/logo.jpg" height=100>
-</p>
-
 Плагин для сканирования кредитной карты для Android и iOS.
 
 ## iOS
 
 <p align="center">
-  <p style="text-align:center;"><img src="demo/images/ios.jpg" height=260>
+  <p style="text-align:center;"><img src=".github/images/ios.jpg" height=260>
 </p>
 
 Используется библиотека [CreditCardScanner](https://github.com/yhkaplan/credit-card-scanner), которая работает
@@ -18,18 +14,10 @@
 ## Android
 
 <p align="center">
-  <p style="text-align:center;"><img src="demo/images/android.jpg" height=260>
+  <p style="text-align:center;"><img src=".github/images/android.jpg" height=260>
 </p>
 
 Используется библиотека [card.io](https://github.com/card-io/card.io-Android-SDK), начиная с `Android 4.1` и выше.
-
-## Установка
-
-- Установить CocoaPods
-```
-cd example/ios
-pod install
-```
 
 ## Как это настроено
 
@@ -40,20 +28,18 @@ pod install
 <key>NSCameraUsageDescription</key>
 <string>Приложение запрашивает доступ к камере для автоматического сканирования карты</string>
 ```
+- Добавлена библиотека
 
-- Для example/ios/Runner.xcworkspace -> PROJECT - Runner - Swift Packages - Кнопка Добавить - Добавлена библиотека
+credit_card_scanner/example/ios/Runner.xcworkspace -> в навигации Runnter -> справа Project Runner -> Packages Dependencies -> +
+
 ```
 https://github.com/yhkaplan/credit-card-scanner.git
+```
 
-0.1.5 версия
+- Установлены CocoaPods
 ```
-- При добавлении библиотеки может быть ошибка 
-```
-Git cloning error: 'fatal: multiple updates for ... ref not allowed'
-```
-Так как вместе с библиотекой скачиваются еще две. Чтобы разрешить мультизагрузку необходимо выполнить покманду
-```
-git config --global --unset remote.origin.fetch
+cd example/ios
+pod install
 ```
 
 ### Android

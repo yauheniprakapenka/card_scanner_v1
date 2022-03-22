@@ -1,0 +1,21 @@
+name: credit_card_scanner_example
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.16.1 <3.0.0"
+  flutter: ">=2.10.3"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  credit_card_scanner:
+    path: ../
+
+dev_dependencies:
+  flutter_lints: ^1.0.4
+  dart_code_metrics: ^4.13.0
+
+flutter:
+  uses-material-design: true
